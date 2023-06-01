@@ -1,8 +1,8 @@
 public class DomainCoordinator {
 
-    public static void triggerHanlder(){
+    public static void triggerHandler(){
         
-        triggerHanlder(
+        triggerHandler(
             DomainService.getDomainImplementation(Trigger.New),
             Trigger.isInsert,
             Trigger.isUpdate,
@@ -12,7 +12,7 @@ public class DomainCoordinator {
             Trigger.OldMap );
     }
 
-    private static void triggerHanlder(
+    private static void triggerHandler(
         ITriggerHandler domainObject, 
         Boolean isInsert, 
         Boolean isUpdate, 

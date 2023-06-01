@@ -1,6 +1,5 @@
-public class QupteService(){
-    
-    public getTotalAcceptedQuotes(List<Id> accountIds){
-
-    } 
+public class QuoteService implements IQuoteService {
+    public Integer  getTotalAcceptedQuotes(List<sObject> records){
+        return 1;
+    }
 }
