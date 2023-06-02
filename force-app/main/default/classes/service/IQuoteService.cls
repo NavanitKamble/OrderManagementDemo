@@ -1,4 +1,4 @@
 public interface IQuoteService{
-    
-    Integer getTotalAcceptedQuotes(List<Quote> records);
+    List<Quote> getQuotesWithStatusChange(List<Quote> records, Map<Id, Quote> oldRecords);
+    void processAcceptedQuotes(List<Quote> records);    
 }
