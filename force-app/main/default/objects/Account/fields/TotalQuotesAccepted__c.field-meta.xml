@@ -3,7 +3,7 @@
     <fullName>TotalQuotesAccepted__c</fullName>
     <defaultValue>0</defaultValue>
     <externalId>false</externalId>
-    <label>TotalQuotesAccepted</label>
+    <label>Total Quotes Accepted</label>
     <precision>18</precision>
     <required>false</required>
     <scale>0</scale>
