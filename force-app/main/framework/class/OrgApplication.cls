@@ -9,5 +9,13 @@ public class OrgApplication {
              }
         
         }
-    }    
+    }
+    
+    public class Selector{
+        public Object newInstance(Type selectorType){
+            if(serviceType == QuoteSelector.Class){
+                return new QuoteSelector();
+            }
+        }
+    }
 }
