@@ -11,6 +11,14 @@ export default class QuoteSummaryBase extends LightningElement {
         this.pageSize = 10;
         this.totalRecords = 100;
     }
+
+    handleOnNext(){
+        console.log('Clicked Next');
+    }
+
+    handleOnPrevious(){
+        console.log('Clicked Previous');
+    }
     
     
 }

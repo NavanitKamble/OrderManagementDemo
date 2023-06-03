@@ -1,8 +1,17 @@
 <template>
     <lightning-card  title="Order Summary">
         
-        <p class="slds-p-horizontal_small"><c-order-table ></c-order-table></p>
-        <p slot="footer"><c-paginator page-number={pageNumber} page-size={pageSize} total-records={totalRecords}></c-paginator></p>
+        <p class="slds-p-horizontal_small">
+            <c-order-table ></c-order-table>
+        </p>
+        <p slot="footer">
+            <c-paginator 
+                page-number={pageNumber} 
+                page-size={pageSize} 
+                total-records={totalRecords} 
+                onprevious={handleOnPrevious}
+                onnext={handleOnNext}></c-paginator>
+        </p>
     </lightning-card>
    <!-- 
         <lightning-layout vertical-align="center" class="slds-m-horizontal_x-small">
