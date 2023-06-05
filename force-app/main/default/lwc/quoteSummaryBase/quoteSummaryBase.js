@@ -1,5 +1,8 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import getQuoteSummary from '@salesforce/apex/QuoteSummaryController.getQuoteData';
+import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+import QUOTE_OBJECT from '@salesforce/schema/Quote';
+
 
 const orderColumns = [
     { label: 'Order Number', fieldName: 'orderNumber', type: 'text', sortable: false },    
@@ -19,7 +22,8 @@ const quoteColumns = [
 ];
 
 export default class QuoteSummaryBase extends LightningElement {
-    
+    hasQuoteRead = false;
+
     pageNumber = initialPageNumber;
     pageSize = pageSize;
     totalRecords;
@@ -38,6 +42,18 @@ export default class QuoteSummaryBase extends LightningElement {
         this.totalRecords = 100;
         this.sortBy = 'Status';
     }
+
+    
+    @wire(getObjectInfo, { objectApiName: QUOTE_OBJECT })
+    wiredData({data, error}){
+
+        if (data) {
+            this.hasQuoteRead = data.queryable;
+        } 
+        if (error) {
+            //
+        }
+     }
 
     @wire(getQuoteSummary, { 
                             accountId : '$recordId',
