@@ -1,8 +1,23 @@
 <template>
-    <lightning-card  title="Order Summary">
+    <lightning-card  title="">
         
         <p class="slds-p-horizontal_small">
-            <c-order-table ></c-order-table>
+            <lightning-layout vertical-align="center" class="slds-m-horizontal_x-small">
+                <lightning-layout-item size="10" padding="horizontal-medium">
+                    <c-quote-table 
+                        quote-columns={quoteColumns} 
+                        quote-data={quoteData} 
+                        sorted-by={sortBy}
+                        onsort={handleQuoteSort}
+                        onshoworders={handleShowOrders}></c-quote-table>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" padding="horizontal-medium">
+                    <c-order-table 
+                        order-columns = {orderColumns}   
+                        order-data = {orderData}></c-order-table>
+                </lightning-layout-item>        
+            </lightning-layout>
+            
         </p>
         <p slot="footer">
             <c-paginator 

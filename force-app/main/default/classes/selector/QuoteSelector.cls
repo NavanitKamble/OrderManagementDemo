@@ -1,12 +1,11 @@
 public with sharing class QuoteSelector {
 
-    public List<QuoteSelector> selectByFieldsAndParentIds(Set<Id> accountIds) {
-        return null;
-        /*
-        return Database.query('
-            SELECT id 
-                FROM Quote
-                Where accountid : accountIds');
-                */
+    public List<Object> selectByAccountId(Id accountId, String sortColumn, Integer pageSize, Integer offset) {
+        
+        String queryString = 'SELECT Id, Name, Status, (SELECT OrderNumber FROM Orders) FROM Quote ORDER BY '; 
+        queryString += sortColumn;
+        queryString += ' LIMIT : pageSize OFFSET : offset';
+        System.debug('**** queryString' + queryString);
+        return Database.query(queryString);
     }
 }

@@ -1,0 +1,15 @@
+<template>
+    
+    <lightning-datatable
+            key-field="id"
+            columns={quoteColumns}
+            data={quoteData}
+            hide-checkbox-column
+            default-sort-direction={defaultSortDirection}
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={onHandleSort}
+            onrowaction={showOrders}>
+    </lightning-datatable>     
+    
+</template>

@@ -6,8 +6,6 @@ export default class Paginator extends LightningElement {
     @api pageSize;
     @api totalRecords;
 
-    
-
     handlePrevious() {
         this.dispatchEvent(new CustomEvent('previous'));
     }

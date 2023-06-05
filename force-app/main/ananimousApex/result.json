@@ -1,0 +1,25 @@
+[
+  {
+    "attributes": {
+      "type": "Quote",
+      "url": "/services/data/v57.0/sobjects/Quote/0Q05i000000N6Y2CAK"
+    },
+    "Id": "0Q05i000000N6Y2CAK",
+    "Name": "quote 1",
+    "Orders": {
+      "totalSize": 1,
+      "done": true,
+      "records": [
+        {
+          "attributes": {
+            "type": "Order",
+            "url": "/services/data/v57.0/sobjects/Order/8015i000003Fo41AAC"
+          },
+          "QuoteId": "0Q05i000000N6Y2CAK",
+          "Id": "8015i000003Fo41AAC",
+          "OrderNumber": "00000100"
+        }
+      ]
+    }
+  }
+]

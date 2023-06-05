@@ -1,6 +1,10 @@
 <template>
     
-        THE TABLE COMES HERE 
-        INSTANTIATES CHILD TABLE TOO      
+    <lightning-datatable
+            key-field="id"
+            columns={orderColumns}
+            data={orderData}
+            hide-checkbox-column>
+    </lightning-datatable>     
     
 </template>
