@@ -26,11 +26,12 @@ private class QuoteTriggerTest {
     }
 
     @IsTest 
-    private static void testAfterInsert_NoArgs_totalAcceptedQuotesNotUpdatedOnAccount() {
+    private static void testAfterUpdate_NoArgs_totalAcceptedQuotesUpdatedOnAccount() {
         Id opportunityId = [SELECT Id FROM Opportunity Limit 1].Id;
         String QUOTE_NAME = 'Test Quote';
         String QUOTE_STATUS_DRAFT = 'Draft';        
-        
+        String QUOTE_STATUS_ACCEPTED = 'Accepted';       
+
         Test.startTest();
         List<Quote> quotes = new QuoteDataFactory().getQuotes(opportunityId, QUOTE_NAME, QUOTE_STATUS_DRAFT, 1, true); 
         Test.stopTest();
@@ -38,5 +39,12 @@ private class QuoteTriggerTest {
         Integer totalCount = Integer.valueOf([SELECT id, TotalQuotesAccepted__c FROM Account WHERE Name = :ACCOUNT_NAME ].TotalQuotesAccepted__c);
         
         System.assertEquals(0,totalCount); //since no Quote is in Draft Status
+
+        //Lets update this Quote
+        quotes[0].Status = QUOTE_STATUS_ACCEPTED;
+        update quotes[0];
+
+        totalCount = Integer.valueOf([SELECT id, TotalQuotesAccepted__c FROM Account WHERE Name = :ACCOUNT_NAME ].TotalQuotesAccepted__c);
+        System.assertEquals(1,totalCount);//since 1 Quote is in Accept Status Now
     }
 }
