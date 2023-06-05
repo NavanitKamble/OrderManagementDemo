@@ -8,4 +8,8 @@ public with sharing class QuoteSelector {
         System.debug('**** queryString' + queryString);
         return Database.query(queryString);
     }
+
+    public List<Object> selectByIds(Set<Id> quoteIds){
+        return Database.query('SELECT Id, AccountId, Status FROM Quote Where Id IN : quoteIds');
+    }
 }
