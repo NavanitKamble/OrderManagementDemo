@@ -10,7 +10,7 @@ public class AccountService implements IAccountService {
     }
 
     private Map<Id, Account> getLocalAcceptedQuoteCount(Set<Id> accountIds){
-        List<Account> accountsToUpdate = ((AccountSelector) new OrgApplication.selector().newInstance(AccountSelector.class)).selectByFieldsAndParentIds(accountIds);
+        List<Account> accountsToUpdate = ((AccountSelector) new OrgApplication.selector().newInstance(AccountSelector.class)).selectByAccountIds(accountIds);
         return new Map<Id, Account>(accountsToUpdate) ;
     }
 
